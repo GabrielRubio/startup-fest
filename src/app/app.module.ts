@@ -4,16 +4,30 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { AppNavComponent } from './app-nav/app-nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
-import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule } from '@angular/material';
+import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule, MatCardModule } from '@angular/material';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { HeaderComponent } from './components/header/header.component';
+import { HomePageComponent } from './pages/home-page/home-page.component';
+import { ResultsPageComponent } from './pages/results-page/results-page.component';
+import { StartupPageComponent } from './pages/startup-page/startup-page.component';
+import { ErrorPageComponent } from './pages/error-page/error-page.component';
+import { StartupCardComponent } from './components/startup-card/startup-card.component';
+import { StartupListComponent } from './components/startup-list/startup-list.component';
+import { RatingComponent } from './components/rating/rating.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    AppNavComponent
+    HeaderComponent,
+    HomePageComponent,
+    ResultsPageComponent,
+    StartupPageComponent,
+    ErrorPageComponent,
+    StartupCardComponent,
+    StartupListComponent,
+    RatingComponent
   ],
   imports: [
     BrowserModule,
@@ -25,6 +39,7 @@ import { environment } from '../environments/environment';
     MatSidenavModule,
     MatIconModule,
     MatListModule,
+    MatCardModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [],
