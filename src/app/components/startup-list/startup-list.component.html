@@ -1,1 +1,3 @@
-<app-startup-card *ngFor="let startup of startups; let i = index" [startup]="startup"></app-startup-card>      
+<div class="cardList">
+    <app-startup-card class="cardItem" *ngFor="let startup of startups; let i = index" [startup]="startup"></app-startup-card>
+</div>
