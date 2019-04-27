@@ -13,7 +13,7 @@ const routes: Routes = [
   },
   // Startups details
   {
-      path: 'startup/:id',
+      path: 'startup/:slugname',
       component: StartupPageComponent
   },
   // Results 
