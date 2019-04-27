@@ -1,0 +1,30 @@
+{
+    "data": {
+      "allSegments": [
+        {
+          "code": "BIOTECH",
+          "name": "Biotecnologia"
+        },
+        {
+          "code": "FINTECH",
+          "name": "Fintech"
+        },
+        {
+          "code": "GAMES",
+          "name": "Games"
+        },
+        {
+          "code": "HEALTH",
+          "name": "Health Tech"
+        },
+        {
+          "code": "EDTECH",
+          "name": "EdTech"
+        },
+        {
+          "code": "AGRITECH",
+          "name": "AgriTech"
+        }
+      ]
+    }
+  }

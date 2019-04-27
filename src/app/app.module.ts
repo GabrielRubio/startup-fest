@@ -1,7 +1,14 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+// modulos
 import { AppRoutingModule } from './app-routing.module';
+import { GraphQLModule } from './graphql.module';
+import { HttpClientModule } from '@angular/common/http';
+
+// services
+import { StartupsService } from './providers/startups.service';
+
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LayoutModule } from '@angular/cdk/layout';
@@ -16,6 +23,7 @@ import { ErrorPageComponent } from './pages/error-page/error-page.component';
 import { StartupCardComponent } from './components/startup-card/startup-card.component';
 import { StartupListComponent } from './components/startup-list/startup-list.component';
 import { RatingComponent } from './components/rating/rating.component';
+import { from } from 'rxjs';
 
 @NgModule({
   declarations: [
@@ -40,9 +48,11 @@ import { RatingComponent } from './components/rating/rating.component';
     MatIconModule,
     MatListModule,
     MatCardModule,
-    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
+    GraphQLModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [StartupsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
