@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 import gql from 'graphql-tag';
+import { StartupsService } from 'src/app/providers/startups.service';
 
 @Component({
   selector: 'app-startup-list',
@@ -11,30 +12,34 @@ import gql from 'graphql-tag';
   styleUrls: ['./startup-list.component.scss']
 })
 export class StartupListComponent implements OnInit {
-  startups: Observable<any>;
-  constructor(private apollo: Apollo) { }
+  // startups: Observable<any>;
+  startups: any[];
+  constructor(public startupService: StartupsService, private apollo: Apollo) { }
 
   ngOnInit() {
-    this.startups = this.apollo
-      .watchQuery<any>({
-        query: gql`
-          query GetAllStartups {
-            allStartups {
-              name
-              teamCount
-              description
-              imageUrl
-              annualReceipt
-              Segment {
-                name
-                code
-              }
-            }
-          }
-        `,
-      })
-      .valueChanges.pipe(
-        map(result => result.data.allStartups)
-      );
+    // this.startups = this.apollo
+    //   .watchQuery<any>({
+    //     query: gql`
+    //       query GetAllStartups {
+    //         allStartups {
+    //           name
+    //           teamCount
+    //           description
+    //           imageUrl
+    //           annualReceipt
+    //           Segment {
+    //             name
+    //             code
+    //           }
+    //         }
+    //       }
+    //     `,
+    //   })
+    //   .valueChanges
+    //   .pipe(
+    //     map(result => result.data.allStartups)
+    //   );
+    this.startups = this.startupService.list();
+    console.log(this.startups);
   }
 }
