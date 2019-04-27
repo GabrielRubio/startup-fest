@@ -21,6 +21,7 @@ import { ResultsPageComponent } from './pages/results-page/results-page.componen
 import { StartupPageComponent } from './pages/startup-page/startup-page.component';
 import { ErrorPageComponent } from './pages/error-page/error-page.component';
 import { StartupCardComponent } from './components/startup-card/startup-card.component';
+import { StartupDetailsComponent } from './components/startup-details/startup-details.component';
 import { StartupListComponent } from './components/startup-list/startup-list.component';
 import { RatingComponent } from './components/rating/rating.component';
 import { from } from 'rxjs';
@@ -34,6 +35,7 @@ import { from } from 'rxjs';
     StartupPageComponent,
     ErrorPageComponent,
     StartupCardComponent,
+    StartupDetailsComponent,
     StartupListComponent,
     RatingComponent
   ],
