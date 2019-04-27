@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 /**
  * @title Card with multiple sections
@@ -9,6 +9,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./startup-card.component.scss']
 })
 export class StartupCardComponent implements OnInit {
+  
+  @Input() startup: any = {};
+  @Input() view: boolean = false;
 
   constructor() { }
 
