@@ -1,4 +1,26 @@
-<p>
-  startup-details works!
-</p>
-{{ startup | json }}
+<mat-card class="example-card" >
+  <a [routerLink]="startup.router">
+    <img mat-card-image class="card-img" src="{{ startup.imageUrl }}" alt="Photo of a {{ startup.name }}">
+  </a>
+      
+      <mat-card-content>
+          <mat-card-title class="card-text">{{ startup.name }}</mat-card-title>
+          <mat-card-subtitle class="card-text">{{ startup.Segment.name }}</mat-card-subtitle>
+        <div class="card-details">
+            {{ startup.description }}
+        </div>
+        <br />
+        <div class="card-review">
+          <app-star-review title="Proposta"></app-star-review>
+          <br />
+          
+          <app-star-review title="Apresentação/Pitch"></app-star-review>
+          <br />
+    
+          <app-star-review title="Desenvolvimento"></app-star-review>
+        </div>
+      </mat-card-content>
+  <mat-card-actions>
+    <button mat-button><mat-icon>share</mat-icon> SHARE</button>
+  </mat-card-actions>
+</mat-card>

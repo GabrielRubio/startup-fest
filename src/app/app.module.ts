@@ -25,6 +25,8 @@ import { StartupDetailsComponent } from './components/startup-details/startup-de
 import { StartupListComponent } from './components/startup-list/startup-list.component';
 import { RatingComponent } from './components/rating/rating.component';
 import { from } from 'rxjs';
+import { BarRatingModule } from "ngx-bar-rating";
+import { StarReviewComponent } from './components/star-review/star-review.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +39,8 @@ import { from } from 'rxjs';
     StartupCardComponent,
     StartupDetailsComponent,
     StartupListComponent,
-    RatingComponent
+    RatingComponent,
+    StarReviewComponent
   ],
   imports: [
     BrowserModule,
@@ -50,6 +53,7 @@ import { from } from 'rxjs';
     MatIconModule,
     MatListModule,
     MatCardModule,
+    BarRatingModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
     GraphQLModule,
     HttpClientModule
