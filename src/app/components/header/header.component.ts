@@ -14,7 +14,24 @@ export class HeaderComponent {
     .pipe(
       map(result => result.matches)
     );
+    
+  options: any[] = [
+    {
+      icon: 'stars',
+      text: 'Startups',
+      route: '/'
+    },
+    {
+      icon: 'timeline',
+      text: 'Resultados',
+      route: '/results'
+    },
+    {
+      icon: 'location_on',
+      text: 'Localização',
+      route: '/map'
+    },
+   ]
 
   constructor(private breakpointObserver: BreakpointObserver) {}
-
 }

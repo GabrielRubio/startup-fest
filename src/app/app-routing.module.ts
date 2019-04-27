@@ -18,7 +18,7 @@ const routes: Routes = [
   },
   // Results 
   {
-      path: 'result',
+      path: 'results',
       component: ResultsPageComponent
   },
   // Handing error 404
