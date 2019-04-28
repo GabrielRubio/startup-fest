@@ -1,6 +1,7 @@
 
 import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
+import { Observable } from 'apollo-link';
 
 export interface Star {
   userId: any;
@@ -18,15 +19,18 @@ export class StarService {
   constructor(private afs: AngularFirestore) { }
 
   // Star reviews that belong to a user
-  getUserStars(userId, criterion) {
+  getUserStars(userId, criterion, startupName) {
     const starsRef = this.afs.collection('stars', ref => ref.where('userId', '==', userId)
-                                                            .where('criterion', '==', criterion) );
+                                                            .where('criterion', '==', criterion)
+                                                            .where('startupName', '==', startupName) );
     return starsRef.valueChanges();
   }
 
   // Get all stars that belog to a Criterion
-  getCriterionStars(startupName, criterion) {
-    const starsRef = this.afs.collection('stars', ref => ref.where('criterion', '==', criterion) );
+  getAverageStars(criterion, startupName) {
+    const starsRef = this.afs.collection('stars', ref => ref.where('criterion', '==', criterion)
+                                                            .where('startupName', '==', startupName) );
+
     return starsRef.valueChanges();
   }
 

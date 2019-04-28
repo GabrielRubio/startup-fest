@@ -6,7 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { GraphQLModule } from './graphql.module';
 import { HttpClientModule } from '@angular/common/http';
 import { AngularFireModule } from '@angular/fire';
-import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFirestoreModule, FirestoreSettingsToken } from '@angular/fire/firestore';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 
 // services
@@ -68,7 +68,7 @@ import { RankingItemComponent } from './components/ranking-item/ranking-item.com
     GraphQLModule,
     HttpClientModule
   ],
-  providers: [StartupsService],
+  providers: [StartupsService, {provide: FirestoreSettingsToken, useValue: {}}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
