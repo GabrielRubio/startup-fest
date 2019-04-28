@@ -33,6 +33,13 @@ export class StarService {
 
     return starsRef.valueChanges();
   }
+  
+  // Get all stars that belog to a Criterion
+  getRankingStars(criterion) {
+    const starsRef = this.afs.collection('stars', ref => ref.where('criterion', '==', criterion));
+
+    return starsRef.valueChanges();
+  }
 
   // Create or update star
   setStar(userId, startupName, criterion, value) {

@@ -51,6 +51,13 @@ export class StartupsService {
     //     return product ? resolve(product) : reject('product not found');
     //   })
     // })
+  }
 
+  getListOfNameSlug(){
+    let startups = this.list();
+    let names = startups.map((startup, i)=>{
+      return startup.nameSlug;
+    });
+    return names;
   }
 }

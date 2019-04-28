@@ -1,17 +1,17 @@
 <div class="wrapper">
   <div class="box-left">
-      <p>Posicao</p>
+      {{position}}
   </div>
   <div class="box-center">
       <p>Img</p>
   </div>
   <div class="box-right">
     <div>
-        <p>Nome</p>
+        {{startup}}
         <p>Segmento</p>
     </div>
     <div>
-      <app-star-review title="" isAverage=true readOnly=false></app-star-review>
+      <app-star-review title="" isAverage=true readOnly=false startupName={{startup}} criterion={{criterion}}></app-star-review>
     </div>
   </div>
 </div>

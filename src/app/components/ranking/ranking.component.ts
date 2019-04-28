@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { StarService } from 'src/app/providers/star.service';
+import { StartupsService } from 'src/app/providers/startups.service';
 
 @Component({
   selector: 'app-ranking',
@@ -6,10 +8,30 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./ranking.component.scss']
 })
 export class RankingComponent implements OnInit {
+  
+  @Input() criterion: string = '';
+  @Input() title: string = '';
 
-  constructor() { }
+  avgStartups: any = [];
+
+  constructor(private starService: StarService, public startupService: StartupsService) { }
 
   ngOnInit() {
+    let startupsName = this.startupService.getListOfNameSlug();
+ 
+    startupsName.forEach(element => {
+      this.starService.getAverageStars(this.criterion, element).subscribe(
+        doc => {
+          const ratings = doc.map(v => v['value']);
+          let average = ratings.length ? ratings.reduce((total, val) => total + val) / doc.length : 0;
+          this.avgStartups.push({startup: element, avg: average});      
+        }
+      );     
+    });
+    //sorting dados
+    console.log(this.avgStartups);
+    // let aaa = this.avgStartups.sort(function(a, b) {return a.avg > b.avg;});
+    console.log(this.avgStartups.slice(2));
+    
   }
-
 }

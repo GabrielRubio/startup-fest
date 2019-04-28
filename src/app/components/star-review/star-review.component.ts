@@ -10,8 +10,7 @@ import { map } from 'rxjs/operators';
 })
 export class StarReviewComponent implements OnInit {
 
-
-  @Input() userId: string = '';
+  @Input() userId: string = 'cata';
   @Input() startupName: string = '';
   @Input() criterion: string = '';
   @Input() title: string = '';
@@ -21,6 +20,7 @@ export class StarReviewComponent implements OnInit {
   stars: Observable<any[]>;
   rate: number;
   avg: number;
+
   constructor(private starService: StarService) { }
 
   ngOnInit() {

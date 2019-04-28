@@ -1,4 +1,4 @@
-<h3>Critério</h3>
-<app-ranking-item></app-ranking-item>
-<app-ranking-item></app-ranking-item>
-<app-ranking-item></app-ranking-item>
+<h3>{{ title }}</h3>
+<div *ngFor="let startup of avgStartups | slice:0:3; let i=index" >
+    <app-ranking-item [position]="i+1" [startup]="startup.startup" [average]="startup.avg" criterion={{criterion}}></app-ranking-item>
+</div>

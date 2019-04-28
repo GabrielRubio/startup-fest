@@ -4,6 +4,6 @@
         <bar-rating [(rate)]="rate" [max]="5" [theme]="'stars'" [readOnly]="readOnly" (rateChange)="starHandler($event)"></bar-rating>
     </div>
     <div *ngIf="isAverage"  class="box-right">
-        <h3> {{ avg | json }} / 5 </h3>
+        <h3> {{ avg | number: '.2-2' }} / 5 </h3>
     </div>
 </div>
