@@ -1,0 +1,21 @@
+
+/* 
+    BOX
+*/
+.wrapper {
+    display: flex;
+    padding: 10px;
+    border:1px solid black;
+}
+
+.box-left {
+    flex: 1 10.00%;
+}
+
+.box-center {
+    flex: 1 20.00%;
+}
+
+.box-right {
+    flex: 1 70.00%;
+}
