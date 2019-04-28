@@ -5,6 +5,9 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { GraphQLModule } from './graphql.module';
 import { HttpClientModule } from '@angular/common/http';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
 
 // services
 import { StartupsService } from './providers/startups.service';
@@ -28,6 +31,7 @@ import { BarRatingModule } from "ngx-bar-rating";
 import { StarReviewComponent } from './components/star-review/star-review.component';
 import { RankingComponent } from './components/ranking/ranking.component';
 import { RankingItemComponent } from './components/ranking-item/ranking-item.component';
+
 
 @NgModule({
   declarations: [
@@ -57,6 +61,9 @@ import { RankingItemComponent } from './components/ranking-item/ranking-item.com
     MatCardModule,
     MatGridListModule,
     BarRatingModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireDatabaseModule,
+    AngularFirestoreModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
     GraphQLModule,
     HttpClientModule

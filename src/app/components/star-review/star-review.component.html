@@ -1,2 +1,3 @@
 <h3>{{ title }}</h3>
-<bar-rating [(rate)]="rate" [max]="5" [theme]="'stars'"></bar-rating>
+{{ rate | json }}
+<bar-rating [(rate)]="rate" [max]="5" [theme]="'stars'" (rateChange)="starHandler($event)"></bar-rating>

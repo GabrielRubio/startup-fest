@@ -11,13 +11,13 @@
         </div>
         <br />
         <div class="card-review">
-          <app-star-review title="Proposta"></app-star-review>
+          <app-star-review title="Proposta" startupName="{{ startup.nameSlug }}" criterion="proposta" ></app-star-review>
           <br />
           
-          <app-star-review title="Apresentação/Pitch"></app-star-review>
+          <app-star-review title="Apresentação/Pitch" startupName="{{ startup.nameSlug }}" criterion="pitch"></app-star-review>
           <br />
     
-          <app-star-review title="Desenvolvimento"></app-star-review>
+          <app-star-review title="Desenvolvimento" startupName="{{ startup.nameSlug }}" criterion="desenvolvimento"></app-star-review>
         </div>
       </mat-card-content>
   <mat-card-actions>
