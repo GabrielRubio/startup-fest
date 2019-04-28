@@ -1,0 +1,17 @@
+.wrapper {
+    display: flex;
+    padding: 10px;
+}
+
+.box-left {
+    flex: 1 70.00%;
+}
+
+.box-right {
+    flex: 1 30.00%;
+    float: left;
+}
+
+.box-right .h3 {
+    padding-top: 10px;
+}

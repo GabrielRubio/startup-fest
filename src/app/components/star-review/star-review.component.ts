@@ -15,9 +15,11 @@ export class StarReviewComponent implements OnInit {
   @Input() startupName: string = '';
   @Input() criterion: string = '';
   @Input() title: string = '';
+  @Input() isAverage: boolean = false;
+  @Input() readOnly: boolean = false;
 
   stars: Observable<any[]>;
-  rate: Observable<any>;
+  rate: number;
   avg: number;
   constructor(private starService: StarService) { }
 
@@ -27,13 +29,17 @@ export class StarReviewComponent implements OnInit {
         this.rate = doc[0]['value'];
     });
    
-    // handing average stars
-    this.starService.getAverageStars(this.criterion, this.startupName).subscribe(
-      doc => {
-        const ratings = doc.map(v => v['value']);
-        this.avg = ratings.length ? ratings.reduce((total, val) => total + val) / doc.length : 0;
-      }
-    );
+    if(this.isAverage){
+      // handing average stars
+      this.starService.getAverageStars(this.criterion, this.startupName).subscribe(
+        doc => {
+          const ratings = doc.map(v => v['value']);
+          this.avg = ratings.length ? ratings.reduce((total, val) => total + val) / doc.length : 0;
+          //and set rate with the avg
+          this.rate = this.avg;
+        }
+      );
+    }
   }
 
   // set user stars 

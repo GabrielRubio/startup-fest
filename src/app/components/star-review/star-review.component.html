@@ -1,3 +1,9 @@
 <h3>{{ title }}</h3>
-{{ avg | json }} / 5
-<bar-rating [(rate)]="rate" [max]="5" [theme]="'stars'" (rateChange)="starHandler($event)"></bar-rating>
+<div class="wrapper">
+    <div class="box-left">
+        <bar-rating [(rate)]="rate" [max]="5" [theme]="'stars'" [readOnly]="readOnly" (rateChange)="starHandler($event)"></bar-rating>
+    </div>
+    <div *ngIf="isAverage"  class="box-right">
+        <h3> {{ avg | json }} / 5 </h3>
+    </div>
+</div>
