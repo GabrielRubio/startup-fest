@@ -24,14 +24,16 @@ export class RankingComponent implements OnInit {
         doc => {
           const ratings = doc.map(v => v['value']);
           let average = ratings.length ? ratings.reduce((total, val) => total + val) / doc.length : 0;
-          this.avgStartups.push({startup: element, avg: average});      
+          this.avgStartups.push({startup: element, average: average});      
         }
       );     
     });
-    //sorting dados
-    console.log(this.avgStartups);
-    // let aaa = this.avgStartups.sort(function(a, b) {return a.avg > b.avg;});
-    console.log(this.avgStartups.slice(2));
-    
+  }
+  
+  //sorting 
+  get sortData() {
+    return this.avgStartups.sort((a, b) => {
+      return b.average - a.average;
+    });
   }
 }
