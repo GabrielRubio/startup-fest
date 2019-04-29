@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { StarService } from '../../providers/star.service';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { SessionService } from 'src/app/providers/session.service';
 
 @Component({
   selector: 'app-star-review',
@@ -10,18 +11,18 @@ import { map } from 'rxjs/operators';
 })
 export class StarReviewComponent implements OnInit {
 
-  @Input() userId: string = 'cata';
   @Input() startupName: string = '';
   @Input() criterion: string = '';
   @Input() title: string = '';
   @Input() isAverage: boolean = false;
   @Input() readOnly: boolean = false;
-
+  
+  constructor(private starService: StarService, public session:SessionService) { }
+  
   stars: Observable<any[]>;
   rate: number;
   avg: number;
-
-  constructor(private starService: StarService) { }
+  userId: string = this.session.getUserId();
 
   ngOnInit() {
     // handing user selected stars
