@@ -1,6 +1,7 @@
+<a [routerLink]="startup.router">
 <div class="wrapper">
   <div class="box-left">
-      <p class="position">{{position}}</p>
+      <p class="position">{{position}}°</p>
   </div>
   <div class="box-center">
       <img src="{{startup.imageUrl}}" alt="Avatar"> 
@@ -10,8 +11,9 @@
         <p class="title">{{startup.name}}</p>
         <p class="subtitle">{{startup.Segment.name}}</p>
     </div>
-    <div>
+    <div class="box-stars">
       <app-star-review title="" isAverage=true readOnly=false startupName={{nameSlug}} criterion={{criterion}}></app-star-review>
     </div>
   </div>
 </div>
+</a>
