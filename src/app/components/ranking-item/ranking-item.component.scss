@@ -28,4 +28,20 @@ img {
     position: relative;
     width: 100%;
     overflow: hidden;
-  }
+}
+
+.position {
+    padding: 10%;
+    font-size: 20px;
+}
+
+.title {
+    padding-left: 2%;
+    margin-bottom: 8px;       
+}
+.subtitle {
+    padding-left: 2%;       
+    color: rgba(0,0,0,.54);
+    font-size: 14px;       
+}
+

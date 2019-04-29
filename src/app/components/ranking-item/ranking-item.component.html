@@ -1,14 +1,14 @@
 <div class="wrapper">
   <div class="box-left">
-      {{position}}
+      <p class="position">{{position}}</p>
   </div>
   <div class="box-center">
       <img src="{{startup.imageUrl}}" alt="Avatar"> 
   </div>
   <div class="box-right">
     <div>
-        {{startup.name}}
-        <p>{{startup.Segment.name}}</p>
+        <p class="title">{{startup.name}}</p>
+        <p class="subtitle">{{startup.Segment.name}}</p>
     </div>
     <div>
       <app-star-review title="" isAverage=true readOnly=false startupName={{nameSlug}} criterion={{criterion}}></app-star-review>

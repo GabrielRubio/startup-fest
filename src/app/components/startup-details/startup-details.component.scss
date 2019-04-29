@@ -10,6 +10,9 @@
     max-width: 300px;
     max-height: 200px;
     padding-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .card-text {
@@ -17,16 +20,20 @@
     min-height: 100%;
     display: -webkit-flex;
     display: flex;
-    -webkit-align-items: center;
     align-items: center;
-    -webkit-justify-content: center;
     justify-content: center;
 }
 
-.card-details{
+.card-details {
     width: 70%;
     text-align: justify;
     padding-left: 15%;
+}
+
+.card-review {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .border {
