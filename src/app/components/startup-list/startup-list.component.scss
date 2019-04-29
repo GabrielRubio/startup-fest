@@ -18,8 +18,10 @@
   /* medium size viewport */
   @media screen and (max-width: 959px) {
     /* Column Gap */
-    .cardList > *:not(:last-child) {
-      margin-right: 32px;
+    .cardList > *:not(:end) {
+      display: flex;
+      flex-direction: center;
+      justify-content: center;
     }
     /* Item sizing */
     .cardListItem {

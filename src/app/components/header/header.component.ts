@@ -26,11 +26,11 @@ export class HeaderComponent {
       text: 'Resultados',
       route: '/results'
     },
-    {
-      icon: 'location_on',
-      text: 'Localização',
-      route: '/map'
-    },
+    // {
+    //   icon: 'location_on',
+    //   text: 'Localização',
+    //   route: '/map'
+    // },
    ]
 
   constructor(private breakpointObserver: BreakpointObserver) {}
