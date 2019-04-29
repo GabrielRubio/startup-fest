@@ -19,7 +19,6 @@ export class RankingItemComponent implements OnInit {
 
   ngOnInit() {
     this.startup = this.startupService.view(this.nameSlug);
-    console.log(this.startup);
   }
 
 }

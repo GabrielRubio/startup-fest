@@ -9,18 +9,57 @@ import * as _ from 'lodash';
 import * as $ from 'jquery';
 import { Observable } from 'rxjs';
 import { reject } from 'q';
+import { Apollo } from 'apollo-angular';
+import gql from 'graphql-tag';
 
 @Injectable({
   providedIn: 'root'
 })
 export class StartupsService {
+
   startups2:any[];
+  startups: any;
+  loading: boolean = true;
+
   
-  constructor() { }
+  constructor(private apollo: Apollo) { }
  
-  list() {
+    getStartupList(){
+      this.apollo
+         .watchQuery<any>({
+           query: gql`
+             {
+               allStartups {
+                 name
+                 teamCount
+                 description
+                 imageUrl
+                 annualReceipt
+                 Segment {
+                   name
+                   code
+                 }
+               }
+             }
+           `,
+         })
+         .valueChanges
+         .subscribe(
+           result => {
+             console.log(result);
+             this.startups = result.data;
+             this.loading = result.loading;
+          }
+         );
+    }
+
+   list() {
+    this.startups = this.getStartupList();
+    console.log("apolo")
+    console.log(this.startups);
+
     this.startups2 = startups.data.allStartups;
-    console.log(this.startups2);
+    
     this.startups2.map((startup, i:number) => {
         // id
         this.startups2[i].id = i;
