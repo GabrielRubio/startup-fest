@@ -1,13 +1,15 @@
 <mat-card class="example-card" >
-  <a [routerLink]="startup.router">
-    <img mat-card-image class="card-img" src="{{ startup.imageUrl }}" alt="Photo of a {{ startup.name }}">
-  </a>
-      
+      <a [routerLink]="startup.router">
+        <img mat-card-image class="card-img" src="{{ startup.imageUrl }}" alt="Photo of a {{ startup.name }}">
+      </a>
+        
       <mat-card-content>
           <mat-card-title class="card-text">{{ startup.name }}</mat-card-title>
           <mat-card-subtitle class="card-text">{{ startup.Segment.name }}</mat-card-subtitle>
         <div class="card-details">
+          <div class="border">
             {{ startup.description }}
+          </div>
         </div>
         <br />
         <div class="card-review">

@@ -3,15 +3,15 @@
       {{position}}
   </div>
   <div class="box-center">
-      <p>Img</p>
+      <img src="{{startup.imageUrl}}" alt="Avatar"> 
   </div>
   <div class="box-right">
     <div>
-        {{startup}}
-        <p>Segmento</p>
+        {{startup.name}}
+        <p>{{startup.Segment.name}}</p>
     </div>
     <div>
-      <app-star-review title="" isAverage=true readOnly=false startupName={{startup}} criterion={{criterion}}></app-star-review>
+      <app-star-review title="" isAverage=true readOnly=false startupName={{nameSlug}} criterion={{criterion}}></app-star-review>
     </div>
   </div>
 </div>

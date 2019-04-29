@@ -5,17 +5,27 @@
 .wrapper {
     display: flex;
     padding: 10px;
-    border:1px solid black;
 }
 
 .box-left {
     flex: 1 10.00%;
+    padding: 10px;
 }
 
 .box-center {
     flex: 1 20.00%;
+    padding: 10px;
 }
 
 .box-right {
     flex: 1 70.00%;
+    position: relative;
+    padding: 10px;
 }
+
+img {
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+  }

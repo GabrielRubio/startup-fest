@@ -27,7 +27,6 @@ export class StartupPageComponent implements OnInit {
             let slugName = params['slugname'];
             // pego a startup em questao e liga com dados na view
             this.startup = this.startupService.view(slugName);
-            console.log(this.startup);
           }
         )
      }
