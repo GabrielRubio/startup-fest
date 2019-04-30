@@ -6,7 +6,6 @@ const BASEURL = window.location.href;
 export default startups;
 
 import * as _ from 'lodash';
-import * as $ from 'jquery';
 import { Observable } from 'rxjs';
 import { reject } from 'q';
 import { Apollo } from 'apollo-angular';
@@ -54,9 +53,6 @@ export class StartupsService {
     }
 
    list() {
-    this.startups = this.getStartupList();
-    console.log("apolo")
-    console.log(this.startups);
 
     this.startups2 = startups.data.allStartups;
     
