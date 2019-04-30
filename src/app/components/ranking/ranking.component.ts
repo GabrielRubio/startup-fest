@@ -17,8 +17,10 @@ export class RankingComponent implements OnInit {
   constructor(private starService: StarService, public startupService: StartupsService) { }
 
   ngOnInit() {
+    // get startup list
     let startupsName = this.startupService.getListOfNameSlug();
  
+    // picks ordered averages
     startupsName.forEach(element => {
       this.starService.getAverageStars(this.criterion, element).subscribe(
         doc => {

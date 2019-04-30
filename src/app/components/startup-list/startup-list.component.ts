@@ -16,7 +16,9 @@ import gql from 'graphql-tag';
   styleUrls: ['./startup-list.component.scss']
 })
 export class StartupListComponent implements OnInit {
+  
   startups: any[];
+
   constructor(public startupService: StartupsService, private apollo: Apollo) { }
 
   ngOnInit() {

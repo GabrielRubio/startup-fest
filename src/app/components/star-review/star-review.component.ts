@@ -17,26 +17,26 @@ export class StarReviewComponent implements OnInit {
   @Input() isAverage: boolean = false;
   @Input() readOnly: boolean = false;
   
-  constructor(private starService: StarService, public session:SessionService) { }
-  
   stars: Observable<any[]>;
   rate: number;
   avg: number;
   userId: string = this.session.getUserId();
 
+  constructor(private starService: StarService, public session:SessionService) { }
+  
   ngOnInit() {
-    // handing user selected stars
+    // picking user selected stars
     this.starService.getUserStars(this.userId, this.criterion, this.startupName).subscribe(doc => {
         this.rate = doc[0]['value'];
     });
    
     if(this.isAverage){
-      // handing average stars
+      // picking average stars
       this.starService.getAverageStars(this.criterion, this.startupName).subscribe(
         doc => {
           const ratings = doc.map(v => v['value']);
           this.avg = ratings.length ? ratings.reduce((total, val) => total + val) / doc.length : 0;
-          //and set rate with the avg
+          //and set rate such a avg
           this.rate = this.avg;
         }
       );

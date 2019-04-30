@@ -22,40 +22,10 @@ export class StartupsService {
 
   
   constructor(private apollo: Apollo) { }
- 
-    getStartupList(){
-      this.apollo
-         .watchQuery<any>({
-           query: gql`
-             {
-               allStartups {
-                 name
-                 teamCount
-                 description
-                 imageUrl
-                 annualReceipt
-                 Segment {
-                   name
-                   code
-                 }
-               }
-             }
-           `,
-         })
-         .valueChanges
-         .subscribe(
-           result => {
-             console.log(result);
-             this.startups = result.data;
-             this.loading = result.loading;
-          }
-         );
-    }
 
+  // list the startups that are in JSON (startups.json) 
    list() {
-
     this.startups2 = startups.data.allStartups;
-    
     this.startups2.map((startup, i:number) => {
         // id
         this.startups2[i].id = i;
@@ -72,22 +42,16 @@ export class StartupsService {
     return this.startups2;
   }
 
+  // selects a startup by the name slug
   view(nameSlug:string){
     let startups = this.list();
     let startup = _.find(startups, (p) =>{
       return p.nameSlug == nameSlug;
     });
     return startup;
-    // return new Promise((resolve, reject) => {
-    //   this.list().then((products: any[]) => {
-    //     let product = _.find(products, (p) =>{
-    //       return p.nameSlug == nameSlug;
-    //     });
-    //     return product ? resolve(product) : reject('product not found');
-    //   })
-    // })
   }
 
+  // returns the slug name list
   getListOfNameSlug(){
     let startups = this.list();
     let names = startups.map((startup, i)=>{

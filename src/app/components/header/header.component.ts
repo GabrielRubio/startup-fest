@@ -14,7 +14,8 @@ export class HeaderComponent {
     .pipe(
       map(result => result.matches)
     );
-    
+  
+  // list of options on menu
   options: any[] = [
     {
       icon: 'stars',
